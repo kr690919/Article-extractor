@@ -166,7 +166,9 @@ with tab1:
                 
                 # Download button
                 safe_title = "".join([c for c in result['title'][:20] if c.isalnum() or c in (' ', '-', '_')]).rstrip().replace(' ', '_')
-                filename = f"{filename_prefix}_{safe_title}.xlsx"
+                filename_prefix = "Article"
+                
+            filename = f"{filename_prefix}_{safe_title}.xlsx"
                 
                 excel_data = create_excel_download(result)
                 
@@ -258,4 +260,5 @@ st.caption("""
 - Make sure URLs start with http:// or https://
 - Some websites block scrapers (try adding www. or removing it)
 - For paywalled content, this won't work unless you have access
+
 """)
