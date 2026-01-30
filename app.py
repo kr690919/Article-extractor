@@ -167,19 +167,18 @@ with tab1:
                 # Download button
                 safe_title = "".join([c for c in result['title'][:20] if c.isalnum() or c in (' ', '-', '_')]).rstrip().replace(' ', '_')
                 filename_prefix = "Article"
+                filename = f"{filename_prefix}_{safe_title}.xlsx"
                 
-            filename = f"{filename_prefix}_{safe_title}.xlsx"
+                excel_data = create_excel_download(result)
                 
-            excel_data = create_excel_download(result)
-                
-            st.download_button(
+                st.download_button(
                     label=f"📥 Download Excel ({len(result['text'])} characters)",
                     data=excel_data,
                     file_name=filename,
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                     use_container_width=True
                 )
-           else:
+            else:
                 st.error(f"❌ Failed to extract: {result['text']}")
 
 # TAB 2: Batch Processing
@@ -262,6 +261,7 @@ st.caption("""
 - For paywalled content, this won't work unless you have access
 
 """)
+
 
 
 
