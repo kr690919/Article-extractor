@@ -179,7 +179,7 @@ with tab1:
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                     use_container_width=True
                 )
-            else:
+             else:
                 st.error(f"❌ Failed to extract: {result['text']}")
 
 # TAB 2: Batch Processing
@@ -262,5 +262,6 @@ st.caption("""
 - For paywalled content, this won't work unless you have access
 
 """)
+
 
 
