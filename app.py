@@ -172,7 +172,7 @@ with tab1:
                 
             excel_data = create_excel_download(result)
                 
-                st.download_button(
+            st.download_button(
                     label=f"📥 Download Excel ({len(result['text'])} characters)",
                     data=excel_data,
                     file_name=filename,
@@ -262,4 +262,5 @@ st.caption("""
 - For paywalled content, this won't work unless you have access
 
 """)
+
 
